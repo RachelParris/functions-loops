@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Open the console or cut and paste code into pythontutor.com to see the magic!!!!</h1>
+
+<script type="text/javascript">
+// FUNCTIONS
+// function functionName(argument) {
+   // Do some cool stuff here
+   // Anything inside this code block (between the {}) will run
+  //  return "Hello" + argument + "!"
+// }
+// functionName("World");
+
+// The argument acts as a placeholder for values that will be passed to the function when called
+// In this case "World" is being passed to the function
+
+function sayName(name) {
+  return "Hello, " + name + "!";
+}
+
+// will log the entire function
+console.log(sayName); 
+
+// will run the function the ()s invokes or calls the function
+sayName("Danny"); 
+
+
+
+// ARRAYS
+var fruits = ["apples", "bananas", "oranges"];
+
+console.log("fruits[1] = ", fruits[1]); // bananas - remember array are 0 index!
+// The [] are used to access elements in an array
+
+console.log("fruits.length = ", fruits.length); // 3
+console.log("fruits[fruits.length] = ", fruits[fruits.length]); // undefined because there is no 3rd index in this array
+
+console.log("fruits[fruits.length - 1] = ", fruits[fruits.length - 1]); // "oranges"
+
+// LOOPS
+// while and for loops need 3 things:
+// 1. inital expression ( var i = 0 )
+// 2. condition that can evaluate to true or false ( i < fruits.length )
+// 3. iterator ( i++ )
+
+var i = 0;
+while (i < fruits.length) {
+  console.log("while loop: ", fruits[i]);
+  i++ 
+}
+// First, the loop get the expression
+// Second, it checks if the express is true or false - if true the code block is run, 
+// if false the code block is skipped 
+// Third, it runs the iterator and then starts the loop again starting at the first step
+
+for (var i = 0; i < fruits.length; i ++) {
+  console.log("for loop: ", fruits[i]);
+}
+// This for loop is doing the same thing as the while loop above!
+
+// What if you wanted to start at the end of a loop and only log the even elements? Here's how.
+// ( var i = fruits.length - 1 ) because you want to start at the very END of the array so i = 2
+// ( i >= 0 ) is the condition that will evaluate to true of false
+// ( i -= 2 ) each time the loop is completed 2 will be subrtracted from i
+for(var i = fruits.length - 1; i >= 0; i -= 2) {
+  console.log("Decrementing loop: ", fruits[i]);
+}
+
+
+// PUTTING IT ALL TOGETHER
+// Say I wanted to multiply every even number by 5 up to 10...
+var arr = [];
+
+function multiply(num) {
+  var product = 5 * num;
+  return product;
+}
+
+for (var i = 0; i <= 10; i +=2) {
+  arr.push(multiply(i));
+}
+
+console.log("multiply every even number by 5 up to 10: ", arr);
+
+
+// Ok, that's great but what if I don't know what numbers to multiply ahead of time?!
+// This is way functions are SO helpful!
+// We can wrap the WHOLE THING inside another function and use arguments as placeholders for the numbers
+// We can than pass the values we want when calling the function
+function multiplyUpTo(startNum, maxNum, iterator) {
+    var arr = [];
+
+  function multiply(startNum) {
+    var product = 5 * startNum;
+    return product;
+  }
+
+  for (var i = startNum; i <= maxNum; i += iterator) {
+    arr.push(multiply(i));
+  }
+
+  return arr;
+}
+
+var numArr = multiplyUpTo(3, 24, 3);
+console.log("numArr: ", numArr);
+</script>
+</body>
+</html>
