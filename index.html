@@ -94,23 +94,26 @@ console.log("multiply every even number by 5 up to 10: ", arr);
 // This is way functions are SO helpful!
 // We can wrap the WHOLE THING inside another function and use arguments as placeholders for the numbers
 // We can than pass the values we want when calling the function
-function multiplyUpTo(startNum, maxNum, iterator) {
+function multiplyUpTo(startNum, maxNum, multiplier) {
     var arr = [];
 
   function multiply(startNum) {
-    var product = 5 * startNum;
+    var product = multiplier * startNum;
     return product;
   }
 
-  for (var i = startNum; i <= maxNum; i += iterator) {
+  for (var i = startNum; i <= maxNum; i += startNum) {
     arr.push(multiply(i));
   }
 
   return arr;
 }
 
-var numArr = multiplyUpTo(3, 24, 3);
-console.log("numArr: ", numArr);
+var numArr1 = multiplyUpTo(3, 24, 3);
+console.log("numArr1: ", numArr1);
+var numArr2 = multiplyUpTo(4, 24, 1);
+console.log("numArr1: ", numArr2);
+
 </script>
 </body>
 </html>
